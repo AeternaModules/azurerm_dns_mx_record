@@ -19,10 +19,10 @@ EOT
     zone_name           = string
     name                = optional(string) # Default: "@"
     tags                = optional(map(string))
-    record = object({
+    record = list(object({
       exchange   = string
       preference = string
-    })
+    }))
   }))
   # --- Unconfirmed validation candidates, derived from azurerm_dns_mx_record's provider source ---
   # Not auto-enabled: either a bespoke provider validator we can't safely translate,
